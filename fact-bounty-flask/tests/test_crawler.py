@@ -3,26 +3,51 @@ import unittest
 import tempfile
 import json
 import sys
+from app import app, db
+from fake_db import db_fd, db_path
 
 sys.path.append(os.path.join(sys.path[0], "../../"))
-FLASKR = __import__("fact-bounty-flask")
+FLASKR = app
 
 
 class Test_Crawler(unittest.TestCase):
-    def setUp(self):
-        FLASKR.config["SQLALCHEMY_DATABASE_URI"] = tempfile.mkstemp()
+    @classmethod
+    def setUpClass(self):
+        self.db_fd, self.db_path = db_fd, db_path
+        FLASKR.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///' + self.db_path
         FLASKR.testing = True
-        self.app = FLASKR.app.app.test_client()
+        self.app = FLASKR.test_client()
+        res = self.app.post(
+            "/api/crawler/cron_job",
+            data=json.dumps(
+                dict(
+                    month = '04',
+                    day = '15'
+                )
+            ),
+            content_type="application/json",
+            follow_redirects=True,
+        )
+        res = res.data.decode("ASCII")
+        res = json.loads(res)
+        # print('--------Setting up------------')
+        # print(res)
+        # print('------------------------------')
 
-    def tearDown(self):
-        os.close(self.db_fd)
-        os.unlink(FLASKR.config["SQLALCHEMY_DATABASE_URI"])
-
+    @classmethod
+    def tearDownClass(self):
+        # os.close(self.db_fd)
+        # os.unlink(self.db_path)
+        pass
+        
     def test_fetch_all_jobs_200(self):
         """Fetch all jobs"""
         response = self.app.get("/api/crawler/cron_job")
         res = response.data.decode("ASCII")
         res = json.loads(res)
+        # print('-----------------------------------------')
+        # print(res)
+        # print('-----------------------------------------')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(res["message"], "Jobs fetched successfully")
         self.assertTrue(isinstance(res["jobs"], (list)))
@@ -32,6 +57,10 @@ class Test_Crawler(unittest.TestCase):
         response = self.app.get("/api/crawler/crawl_live")
         res = response.data.decode("ASCII")
         res = json.loads(res)
+        # print('-----------------------------------------')
+        # print('Response:')
+        # print(res)
+        # print('-----------------------------------------')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(res["message"], "Started Crawling today news")
         self.assertTrue(isinstance(res["tasks"], (list)))

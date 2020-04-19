@@ -1,0 +1,41 @@
+{
+    "factbounty": {
+        "aliases": {},
+        "mappings": {
+            "properties": {
+                "approved_count": { "type": "long" },
+                "content": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": { "type": "keyword", "ignore_above": 256 }
+                    }
+                },
+                "date_added": { "properties": { "$date": { "type": "date" } } },
+                "fake_count": { "type": "long" },
+                "featured_img_url": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": { "type": "keyword", "ignore_above": 256 }
+                    }
+                },
+                "mixedvote_count": { "type": "long" },
+                "title": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": { "type": "keyword", "ignore_above": 256 }
+                    }
+                }
+            }
+        },
+        "settings": {
+            "index": {
+                "creation_date": "1585506241041",
+                "number_of_shards": "1",
+                "number_of_replicas": "1",
+                "uuid": "f43m9jejS3GzLH05DD_puw",
+                "version": { "created": "7060099" },
+                "provided_name": "factbounty"
+            }
+        }
+    }
+}

@@ -18,6 +18,9 @@ class NewsSitesPipeline(object):
         item["mixedvote_count"] = 0
 
         # change date format to allow elasticsearch to detect it as date column
+        # print('------------------------------------------')
+        # print(item)
+        # print('------------------------------------------')
         date = dparser.parse(item["date"]).date()
         item["date"] = date.isoformat()
 

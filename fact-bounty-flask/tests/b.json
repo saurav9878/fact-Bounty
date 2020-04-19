@@ -1,0 +1,116 @@
+{
+    "took": 3,
+    "timed_out": false,
+    "_shards": { "total": 1, "successful": 1, "skipped": 0, "failed": 0 },
+    "hits": {
+        "total": { "value": 7, "relation": "eq" },
+        "max_score": 1.0,
+        "hits": [
+            {
+                "_index": "factbounty",
+                "_type": "story",
+                "_id": "1",
+                "_score": 1.0,
+                "_source": {
+                    "title": "A",
+                    "content": "A content",
+                    "featured_img_url": "A url",
+                    "approved_count": 1,
+                    "fake_count": 1,
+                    "mixedvote_count": 0,
+                    "date_added": { "$date": "2019-01-01T00:00:00.000Z" }
+                }
+            },
+            {
+                "_index": "factbounty",
+                "_type": "story",
+                "_id": "2",
+                "_score": 1.0,
+                "_source": {
+                    "title": "B",
+                    "content": "B content",
+                    "featured_img_url": "B url",
+                    "approved_count": 2,
+                    "fake_count": 8,
+                    "mixedvote_count": 1,
+                    "date_added": { "$date": "2019-01-02T00:00:00.000Z" }
+                }
+            },
+            {
+                "_index": "factbounty",
+                "_type": "story",
+                "_id": "3",
+                "_score": 1.0,
+                "_source": {
+                    "title": "C",
+                    "content": "C content",
+                    "featured_img_url": "C url",
+                    "approved_count": 3,
+                    "fake_count": 2,
+                    "mixedvote_count": 0,
+                    "date_added": { "$date": "2019-01-03T00:00:00.000Z" }
+                }
+            },
+            {
+                "_index": "factbounty",
+                "_type": "story",
+                "_id": "4",
+                "_score": 1.0,
+                "_source": {
+                    "title": "D",
+                    "content": "D content",
+                    "featured_img_url": "D url",
+                    "approved_count": 4,
+                    "fake_count": 4,
+                    "mixedvote_count": 0,
+                    "date_added": { "$date": "2019-01-04T00:00:00.000Z" }
+                }
+            },
+            {
+                "_index": "factbounty",
+                "_type": "story",
+                "_id": "5",
+                "_score": 1.0,
+                "_source": {
+                    "title": "E",
+                    "content": "E content",
+                    "featured_img_url": "E url",
+                    "approved_count": 5,
+                    "fake_count": 5,
+                    "mixedvote_count": 6,
+                    "date_added": { "$date": "2019-01-05T00:00:00.000Z" }
+                }
+            },
+            {
+                "_index": "factbounty",
+                "_type": "story",
+                "_id": "6",
+                "_score": 1.0,
+                "_source": {
+                    "title": "F",
+                    "content": "F content",
+                    "featured_img_url": "F url",
+                    "approved_count": 6,
+                    "fake_count": 6,
+                    "mixedvote_count": 2,
+                    "date_added": { "$date": "2019-01-06T00:00:00.000Z" }
+                }
+            },
+            {
+                "_index": "factbounty",
+                "_type": "story",
+                "_id": "7",
+                "_score": 1.0,
+                "_source": {
+                    "title": "G",
+                    "content": "G content",
+                    "featured_img_url": "G url",
+                    "approved_count": 7,
+                    "fake_count": 7,
+                    "mixedvote_count": 0,
+                    "date_added": { "$date": "2019-01-07T00:00:00.000Z" }
+                }
+            }
+        ]
+    }
+}
