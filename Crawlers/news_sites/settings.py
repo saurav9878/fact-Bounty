@@ -69,7 +69,7 @@ ROBOTSTXT_OBEY = True
 # }
 ITEM_PIPELINES = {"news_sites.pipelines.NewsSitesPipeline": 300}
 
-ELASTICSEARCH_SERVERS = ["http://localhost:9200"]
+ELASTICSEARCH_SERVERS = ["http://0.0.0.0:9200"]
 ELASTICSEARCH_INDEX = "test5"
 ELASTICSEARCH_TYPE = "story"
 

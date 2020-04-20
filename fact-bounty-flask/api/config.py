@@ -28,7 +28,7 @@ class Config:
     FACTBOUNTY_MAIL_SENDER = "FactBounty Admin <factbounty@gmail.com>"
     FACTBOUNTY_ADMIN = os.environ.get("FACTBOUNTY_ADMIN")
     POSTS_PER_PAGE = int(os.environ.get("POSTS_PER_PAGE", "4"))
-    ES_URL = os.environ.get("ELASTIC_SEARCH_URL") or "http://localhost:9200"
+    ES_URL = os.environ.get("ELASTIC_SEARCH_URL") or "http://0.0.0.0:9200"
     ES_INDEX = os.environ.get("ELASTIC_SEARCH_INDEX") or "factbounty"
     JWT_BLACKLIST_ENABLED = True
     JWT_BLACKLIST_TOKEN_CHECKS = ["access", "refresh"]

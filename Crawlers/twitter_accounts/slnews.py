@@ -13,7 +13,7 @@ consumer_secret = os.getenv('consumer_secret')
 access_key = os.getenv('access_key')
 access_secret = os.getenv('access_secret')
 
-es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
+es = Elasticsearch([{'host': '0.0.0.0', 'port': 9200}])
 es.indices.create(index='twitter_index', ignore=400)
 
 

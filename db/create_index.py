@@ -3,7 +3,7 @@ Create ElasicSearch index
 """
 from elasticsearch import Elasticsearch
 
-es = Elasticsearch("http://localhost:9200")
+es = Elasticsearch("http://0.0.0.0:9200")
 index_name = "test5"
 
 # Setting mappings for index

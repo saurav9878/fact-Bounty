@@ -60,7 +60,7 @@ class NewsSitesPipeline(object):
         es_timeout = crawler_settings.get("ELASTICSEARCH_TIMEOUT", 60)
 
         es_servers = crawler_settings.get(
-            "ELASTICSEARCH_SERVERS", "localhost:9200"
+            "ELASTICSEARCH_SERVERS", "0.0.0.0:9200"
         )
         es_servers = (
             es_servers if isinstance(es_servers, list) else [es_servers]
