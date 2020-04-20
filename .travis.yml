@@ -10,12 +10,14 @@ services:
 install:
   - pip install -r fact-bounty-flask/requirements.txt
 before_script:
+  - sleep 10
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - docker-compose up --build -d
-  - sudo service elasticsearch start
-  - sleep 10
 script: 
+  - curl -X GET "localhost:9200/_cat/nodes?v&pretty"
+  - sudo systemctl start elasticsearch
+  - curl -X GET "localhost:9200/_cat/nodes?v&pretty"
   - python db/add_es.py
   - cd fact-bounty-flask
   - flask test
