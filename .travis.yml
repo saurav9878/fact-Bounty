@@ -13,11 +13,11 @@ before_script:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - docker-compose up --build -d
-  - sleep 10
+  - sleep 15
 script: 
-  - curl -X GET "localhost:9200/_cat/nodes?v&pretty"
-  - curl -X GET "0.0.0.0:9200/_cat/nodes?v&pretty"
-  - curl -X GET "127.0.0.1:9200/_cat/nodes?v&pretty"
+  - curl -v -X GET "localhost:9200/_cat/nodes?v&pretty"
+  - curl -v -X GET "0.0.0.0:9200/_cat/nodes?v&pretty"
+  - curl -v -X GET "127.0.0.1:9200/_cat/nodes?v&pretty"
   - python db/add_es.py
   - cd fact-bounty-flask
   - flask test
