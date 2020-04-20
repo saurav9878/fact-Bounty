@@ -18,5 +18,6 @@ RUN dos2unix boot.sh
 RUN chmod +x boot.sh
 
 EXPOSE 5000
+EXPOSE 9200
 
 ENTRYPOINT [ "./boot.sh" ]
