@@ -1,9 +1,10 @@
 from elasticsearch import Elasticsearch
 import json
+import os
 
 es = Elasticsearch()
 
-with open('dump/stories.json', 'r') as read:
+with open(os.path.join(os.path.dirname(__file__),'dump/stories.json'), 'r') as read:
 	data = json.load(read)
 	i = 1
 	for row in data:
