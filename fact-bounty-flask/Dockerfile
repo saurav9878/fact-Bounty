@@ -18,6 +18,5 @@ RUN dos2unix boot.sh
 RUN chmod +x boot.sh
 
 EXPOSE 5000
-RUN sudo systemctl start elasticsearch
 
 ENTRYPOINT [ "./boot.sh" ]
